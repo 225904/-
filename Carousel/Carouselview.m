@@ -43,7 +43,7 @@
 
 - (void)addImagesArray:(NSArray *)imagesArray  currenblock:(CurrentImageClick)currenblock{
     self.currenblock = currenblock;
-    
+    // 判断是否是本地图片
     _isLocalImagesArray = NO;
     self.imageData = [[NSMutableArray alloc] init];
     for (int i = 0; i<imagesArray.count; i++) {

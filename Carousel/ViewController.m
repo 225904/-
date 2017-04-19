@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    Carouselview *scrollView = [[Carouselview alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height) andScrollViewMode:ScrollWithParallax];
+    Carouselview *scrollView = [[Carouselview alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , [UIScreen mainScreen].bounds.size.height) andScrollViewMode:ScrollWithDefault];
     
     scrollView.Intervaltime = 2;
     NSArray *array = @[

@@ -166,6 +166,25 @@
     //设置将要出现图片的中心点
     CGPoint center = CGPointMake(nextImageViewCenterX , CGRectGetHeight(self.frame)/2);
     self.secondImageView.center = center ;
+    if (offsetX < 0) {
+        _currentImageIndex = _nextImageIndex;
+        //给第一张相框添加图片
+        [self addNextImageWith:self.firstImageView WithImageIndex:_nextImageIndex];
+        //让视图瞬间回到中间位置
+        [self.ScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.frame), 0)];
+        [self.ScrollView layoutIfNeeded];
+       self.Page.currentPage = _currentImageIndex;
+    }else if (offsetX>CGRectGetWidth(self.frame)*2){
+        _currentImageIndex = _nextImageIndex;
+        //给第一张相框添加图片
+        [self addNextImageWith:self.firstImageView WithImageIndex:_nextImageIndex];
+        //让视图瞬间回到中间位置
+        [self.ScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.frame), 0)];
+        [self.ScrollView layoutIfNeeded];
+          self.Page.currentPage = _currentImageIndex;
+    }
+    
+    [self layoutSubviews];
 }
 // 滑动停止调用
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -174,7 +193,7 @@
 }
 // 滑动动画结束 setContentOffset: animated:YES 动画结束调用
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    [self endRollScrollViewWith:scrollView];
+  [self endRollScrollViewWith:scrollView];
 }
 //结束滚动后,重置页面
 -(void)endRollScrollViewWith:(UIScrollView *)scrollView
